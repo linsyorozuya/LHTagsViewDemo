@@ -1,6 +1,10 @@
 # LHTagsViewDemo
-CollectionView 实现标签视图
-![]()
+
+利用 CollectionView 实现标签视图
+
+![](https://github.com/linsyorozuya/LHTagsViewDemo/blob/master/LHTagsViewDemo/2016-08-24%2009_22_04.gif)
+
+####使用
 
         _tagsView.dataSource = [@[@"tag",@"tag",@"tag",@"tag",@"tag"] mutableCopy]; // 设置数据源并更新显示
         _tagsView.isShowHeader = NO;// 是否显示头部视图
