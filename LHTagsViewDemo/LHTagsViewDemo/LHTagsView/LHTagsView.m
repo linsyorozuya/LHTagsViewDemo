@@ -69,7 +69,6 @@
     }else
     {
         [_tags_CollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:_dataSource.count-1 inSection:0]]];
-
     }
 }
 

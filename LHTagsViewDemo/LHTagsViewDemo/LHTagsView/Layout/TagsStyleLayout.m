@@ -15,7 +15,6 @@
     [super prepareLayout];
 //    self.sectionInset = UIEdgeInsetsMake(0, 14, 0, 14);
     self.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, !_isShowHeader? 0:50);
-//    self.footerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 60);
     self.minimumInteritemSpacing = 15;
 }
 

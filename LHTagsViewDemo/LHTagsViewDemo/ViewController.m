@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _tagsView.dataSource = [@[@"tag",@"tag",@"tag",@"tag",@"tag"] mutableCopy];
+    _tagsView.dataSource = [@[@"less is more"] mutableCopy];
 //    _tagsView.isShowHeader = NO;
 
 }
@@ -36,7 +36,7 @@
 
 - (IBAction)addClick:(id)sender
 {
-    [_tagsView insertCellAtLast:@"less is more"];
+    [_tagsView insertCellAtLast:_tagsView.dataSource.count %2 == 0? @"tag" :@"less is more"];
 }
 
 - (IBAction)deleteClick:(id)sender
