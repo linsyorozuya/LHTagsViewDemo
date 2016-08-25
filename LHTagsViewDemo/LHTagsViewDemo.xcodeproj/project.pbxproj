@@ -41,8 +41,8 @@
 		ECD74C901D6C333800FD89EB /* HistoryHeadCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryHeadCollectionReusableView.m; sourceTree = "<group>"; };
 		ECD74C921D6C333800FD89EB /* caixiang_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caixiang_05.png; sourceTree = "<group>"; };
 		ECD74C931D6C333800FD89EB /* searchHistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchHistory.png; sourceTree = "<group>"; };
-		ECD74C951D6C333800FD89EB /* TagsStyleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsStyleLayout.h; sourceTree = "<group>"; };
-		ECD74C961D6C333800FD89EB /* TagsStyleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsStyleLayout.m; sourceTree = "<group>"; };
+		ECD74C951D6C333800FD89EB /* TagsStyleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagsStyleLayout.h; path = LHTagsView/Layout/TagsStyleLayout.h; sourceTree = "<group>"; };
+		ECD74C961D6C333800FD89EB /* TagsStyleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagsStyleLayout.m; path = LHTagsView/Layout/TagsStyleLayout.m; sourceTree = "<group>"; };
 		ECD74C9D1D6C337E00FD89EB /* LHTagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHTagsView.h; sourceTree = "<group>"; };
 		ECD74C9E1D6C337E00FD89EB /* LHTagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHTagsView.m; sourceTree = "<group>"; };
 		ECD74CB81D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewLeftAlignedLayout.h; path = ../UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
@@ -84,6 +84,8 @@
 				ECD74C761D6C329100FD89EB /* AppDelegate.m */,
 				ECD74C781D6C329100FD89EB /* ViewController.h */,
 				ECD74C791D6C329100FD89EB /* ViewController.m */,
+				ECD74C951D6C333800FD89EB /* TagsStyleLayout.h */,
+				ECD74C961D6C333800FD89EB /* TagsStyleLayout.m */,
 				ECD74C7B1D6C329100FD89EB /* Main.storyboard */,
 				ECD74C7E1D6C329100FD89EB /* Assets.xcassets */,
 				ECD74C801D6C329100FD89EB /* LaunchScreen.storyboard */,
@@ -147,8 +149,6 @@
 			children = (
 				ECD74CB81D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.h */,
 				ECD74CB91D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.m */,
-				ECD74C951D6C333800FD89EB /* TagsStyleLayout.h */,
-				ECD74C961D6C333800FD89EB /* TagsStyleLayout.m */,
 			);
 			path = Layout;
 			sourceTree = "<group>";

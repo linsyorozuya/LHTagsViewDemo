@@ -10,6 +10,7 @@
 #import "HistoryCollectionViewCell.h"
 #import "HistoryHeadCollectionReusableView.h"
 #import "UICollectionViewLeftAlignedLayout.h"
+#import "TagsStyleLayout.h"
 
 @interface LHTagsView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionReusableViewButtonDelegate>
 
@@ -52,7 +53,7 @@
     
     _tags_CollectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
     
-    UICollectionViewLeftAlignedLayout *layout = (UICollectionViewLeftAlignedLayout *)_tags_CollectionView.collectionViewLayout;
+    TagsStyleLayout *layout = (TagsStyleLayout *)_tags_CollectionView.collectionViewLayout;
     layout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, !_isShowHeader? 0:50);
     [layout invalidateLayout];
 }
@@ -103,7 +104,7 @@
 {
     if (!_tags_CollectionView) {
         // collectionview
-        _tags_CollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)) collectionViewLayout:[[UICollectionViewLeftAlignedLayout alloc] init]];
+        _tags_CollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)) collectionViewLayout:[[TagsStyleLayout alloc] init]];
         _tags_CollectionView.dataSource = self;
         _tags_CollectionView.delegate = self;
         _tags_CollectionView.backgroundColor = self.backgroundColor;

@@ -42,7 +42,6 @@
 @implementation UICollectionViewLeftAlignedLayout
 
 #pragma mark - UICollectionViewLayout
-
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray *originalAttributes = [super layoutAttributesForElementsInRect:rect];
     NSMutableArray *updatedAttributes = [NSMutableArray arrayWithArray:originalAttributes];
