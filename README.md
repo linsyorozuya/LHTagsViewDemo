@@ -2,6 +2,9 @@
 
 利用 CollectionView 实现标签视图
 
+详情见[这里]（http://linbling.com/uicollectionview-shi-xian-biao-qian-gong-neng/）
+
+
 ![](https://github.com/linsyorozuya/LHTagsViewDemo/blob/master/LHTagsViewDemo/2016-08-24%2009_22_04.gif)
 
 ####使用
