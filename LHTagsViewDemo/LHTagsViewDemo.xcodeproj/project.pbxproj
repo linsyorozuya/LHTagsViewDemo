@@ -20,6 +20,7 @@
 		ECD74C9B1D6C333800FD89EB /* searchHistory.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD74C931D6C333800FD89EB /* searchHistory.png */; };
 		ECD74C9C1D6C333800FD89EB /* TagsStyleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD74C961D6C333800FD89EB /* TagsStyleLayout.m */; };
 		ECD74C9F1D6C337E00FD89EB /* LHTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD74C9E1D6C337E00FD89EB /* LHTagsView.m */; };
+		ECD74CBA1D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD74CB91D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		ECD74C961D6C333800FD89EB /* TagsStyleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsStyleLayout.m; sourceTree = "<group>"; };
 		ECD74C9D1D6C337E00FD89EB /* LHTagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHTagsView.h; sourceTree = "<group>"; };
 		ECD74C9E1D6C337E00FD89EB /* LHTagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHTagsView.m; sourceTree = "<group>"; };
+		ECD74CB81D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewLeftAlignedLayout.h; path = ../UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		ECD74CB91D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewLeftAlignedLayout.m; path = ../UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 		ECD74C941D6C333800FD89EB /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				ECD74CB81D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.h */,
+				ECD74CB91D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.m */,
 				ECD74C951D6C333800FD89EB /* TagsStyleLayout.h */,
 				ECD74C961D6C333800FD89EB /* TagsStyleLayout.m */,
 			);
@@ -221,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD74CBA1D6D97B200FD89EB /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				ECD74C7A1D6C329100FD89EB /* ViewController.m in Sources */,
 				ECD74C991D6C333800FD89EB /* HistoryHeadCollectionReusableView.m in Sources */,
 				ECD74C9C1D6C333800FD89EB /* TagsStyleLayout.m in Sources */,
@@ -376,6 +382,7 @@
 				ECD74C881D6C329100FD89EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

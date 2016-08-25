@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface TagsStyleLayout : UICollectionViewFlowLayout
-@property (assign ,nonatomic) BOOL isShowHeader;
 @end
