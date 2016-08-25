@@ -53,7 +53,7 @@
     
     _tags_CollectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
     
-    TagsStyleLayout *layout = (TagsStyleLayout *)_tags_CollectionView.collectionViewLayout;
+    UICollectionViewLeftAlignedLayout *layout = (UICollectionViewLeftAlignedLayout *)_tags_CollectionView.collectionViewLayout;
     layout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, !_isShowHeader? 0:50);
     [layout invalidateLayout];
 }
@@ -104,7 +104,7 @@
 {
     if (!_tags_CollectionView) {
         // collectionview
-        _tags_CollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)) collectionViewLayout:[[TagsStyleLayout alloc] init]];
+        _tags_CollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)) collectionViewLayout:[[UICollectionViewLeftAlignedLayout alloc] init]];
         _tags_CollectionView.dataSource = self;
         _tags_CollectionView.delegate = self;
         _tags_CollectionView.backgroundColor = self.backgroundColor;
@@ -136,8 +136,8 @@
 #pragma mark <UICollectionViewDelegate>
 //返回cell的宽和高
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return [HistoryCollectionViewCell getSizeWithContent:_dataSource[indexPath.row]];
+    UICollectionViewLeftAlignedLayout *layout = (UICollectionViewLeftAlignedLayout *)_tags_CollectionView.collectionViewLayout;
+    return [HistoryCollectionViewCell getSizeWithContent:_dataSource[indexPath.row] maxWidth:_tags_CollectionView.frame.size.width];
 }
 
 //返回头尾

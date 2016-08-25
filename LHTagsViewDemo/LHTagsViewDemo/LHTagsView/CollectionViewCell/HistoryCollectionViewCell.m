@@ -8,7 +8,6 @@
 
 #import "HistoryCollectionViewCell.h"
 
-
 @implementation HistoryCollectionViewCell
 
 - (void)awakeFromNib {
@@ -24,11 +23,11 @@
     [_tagLabel setText:content];
 }
 
-+ (CGSize) getSizeWithContent:(NSString *) content
++ (CGSize) getSizeWithContent:(NSString *) content maxWidth:(CGFloat)maxWidth
 {
     NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
-    style.lineBreakMode = NSLineBreakByCharWrapping;
-    CGSize size = [content boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 24) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12],NSParagraphStyleAttributeName:style} context:nil].size;
+    style.lineBreakMode = NSLineBreakByTruncatingTail;
+    CGSize size = [content boundingRectWithSize:CGSizeMake(maxWidth-20, 24) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12],NSParagraphStyleAttributeName:style} context:nil].size;
     return CGSizeMake(size.width+20, 24);
 }
 

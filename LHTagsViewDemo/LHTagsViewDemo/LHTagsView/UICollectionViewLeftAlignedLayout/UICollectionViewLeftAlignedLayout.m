@@ -84,7 +84,7 @@
         [currentItemAttributes leftAlignFrameWithSectionInset:sectionInset];
         return currentItemAttributes;
     }
-
+    
     CGRect frame = currentItemAttributes.frame;
     frame.origin.x = previousFrameRightPoint + [self evaluatedMinimumInteritemSpacingForSectionAtIndex:indexPath.section];
     currentItemAttributes.frame = frame;

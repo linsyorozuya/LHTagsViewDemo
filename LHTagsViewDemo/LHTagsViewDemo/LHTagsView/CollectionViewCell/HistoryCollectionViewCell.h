@@ -14,6 +14,6 @@
 @property (nonatomic,copy) NSString *content;
 @property (weak, nonatomic) IBOutlet UILabel *tagLabel;
 
-+ (CGSize) getSizeWithContent:(NSString *) content;
++ (CGSize) getSizeWithContent:(NSString *) content maxWidth:(CGFloat)maxWidth;
 
 @end
