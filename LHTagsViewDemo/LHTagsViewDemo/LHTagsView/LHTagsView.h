@@ -18,8 +18,13 @@
 @interface LHTagsView : UIView
 
 @property (nonatomic,weak) id<LHTagsViewDelegate> delegate;
-@property (nonatomic,assign) BOOL isShowHeader;
 @property (nonatomic,strong) NSMutableArray *dataSource;
+
+/** 自定义 */
+@property (nonatomic,assign) BOOL isShowHeader;
+@property (nonatomic,strong) UIColor *cellText_color;
+@property (nonatomic,strong) UIColor *cellBackgroud_color;
+@property (nonatomic,assign) CGFloat cell_height;
 
 - (void) insertCellAtLast:(NSString *)tag;
 - (void) deleteLastCell;

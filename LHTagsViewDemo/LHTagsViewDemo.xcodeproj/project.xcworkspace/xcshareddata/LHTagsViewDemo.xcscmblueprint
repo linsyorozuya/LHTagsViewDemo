@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++4A7ECFB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++9E73D5C" : 9223372036854775807,
+    "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++4A7ECFB" : 9223372036854775807,
+    "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++0458C36" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2CCF9286-CE44-4DBA-8028-913F6C13CBB9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++9E73D5C" : "",
+    "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++4A7ECFB" : "LHTagsViewDemo\/",
+    "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++0458C36" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LHTagsViewDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LHTagsViewDemo\/LHTagsViewDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/linsyorozuya\/-.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++0458C36"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/linsyorozuya\/LHTagsViewDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++4A7ECFB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/linsyorozuya\/LHTagsViewDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C4814E3C82B72DB239C29766640AA9BC8175C9A0+++9E73D5C"
+    }
+  ]
+}
