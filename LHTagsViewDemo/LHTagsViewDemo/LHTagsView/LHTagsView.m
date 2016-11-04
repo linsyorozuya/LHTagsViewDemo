@@ -56,11 +56,20 @@ static CGFloat kDefaultCellHeight = 24;
 {
     [super layoutSubviews];
     
-    _tags_CollectionView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
-    
     UICollectionViewLeftAlignedLayout *layout = (UICollectionViewLeftAlignedLayout *)_tags_CollectionView.collectionViewLayout;
     layout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, !_isShowHeader? 0:50);
     [layout invalidateLayout];
+    
+    _tags_CollectionView.frame = self.bounds;
+    if (!CGSizeEqualToSize(self.bounds.size, [self intrinsicContentSize])) {
+        [self invalidateIntrinsicContentSize];
+    }
+}
+
+- (CGSize)intrinsicContentSize
+{
+    NSLog(@"height---%f",_tags_CollectionView.collectionViewLayout.collectionViewContentSize.height);
+    return _tags_CollectionView.collectionViewLayout.collectionViewContentSize;
 }
 
 /** 添加 */
@@ -75,6 +84,8 @@ static CGFloat kDefaultCellHeight = 24;
     {
         [_tags_CollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:_dataSource.count-1 inSection:0]]];
     }
+    
+    [self invalidateIntrinsicContentSize];
 }
 
 /** 删除 */
@@ -95,14 +106,25 @@ static CGFloat kDefaultCellHeight = 24;
     {
         [_tags_CollectionView deleteItemsAtIndexPaths:@[lastIndex]];
     }
-    
+    [self invalidateIntrinsicContentSize];
+
 }
 
 #pragma mark - setter & getter
+- (void)setIsShowHeader:(BOOL)isShowHeader
+{
+    _isShowHeader = isShowHeader;
+    UICollectionViewLeftAlignedLayout *layout = (UICollectionViewLeftAlignedLayout *)_tags_CollectionView.collectionViewLayout;
+    layout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, !_isShowHeader? 0:50);
+    [layout invalidateLayout];
+    [self invalidateIntrinsicContentSize];
+}
+
 - (void) setDataSource:(NSMutableArray *)dataSource
 {
     _dataSource = dataSource;
     [_tags_CollectionView reloadData];
+    [self invalidateIntrinsicContentSize];
 }
 
 - (CGFloat) cell_height
@@ -203,6 +225,7 @@ static CGFloat kDefaultCellHeight = 24;
     
     if (kind == UICollectionElementKindSectionHeader) {
         HistoryHeadCollectionReusableView* view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"HistoryHeadCollectionReusableView" forIndexPath:indexPath];
+//        view.backgroundColor = [UIColor lightGrayColor];
         [view setText:@"搜索历史"];
         [view setImage:@"searchHistory"];
         view.delectDelegate = self;
@@ -223,6 +246,7 @@ static CGFloat kDefaultCellHeight = 24;
     [_dataSource removeAllObjects];
     [_tags_CollectionView reloadData];
     [self.delegate clearDataSourse];
+    [self invalidateIntrinsicContentSize];
 }
 
 @end

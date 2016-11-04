@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "TagTableViewCell.h"
 
 @interface ViewController ()<LHTagsViewDelegate>
-
+@property (weak, nonatomic) IBOutlet UISwitch *isShowHead;
 @end
 
 @implementation ViewController
@@ -17,9 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _tagsView.dataSource = [@[@"less is more"] mutableCopy];
+    _tagsView.dataSource = [@[@"tag"] mutableCopy];
+    _tagsView.delegate = self;
     _tagsView.isShowHeader = NO;
 
+    [_isShowHead addTarget:self action:@selector(showCollectiobViewHead) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)showCollectiobViewHead
+{
+    _tagsView.isShowHeader = !_tagsView.isShowHeader;
 }
 
 #pragma mark - LHTagsViewDelegate
