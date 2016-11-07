@@ -147,17 +147,14 @@ static CGFloat kDefaultCellHeight = 24;
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
-//返回section的个数
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return _dataSource.count == 0? 0:1;
 }
 
-//返回section中的cell个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _dataSource.count;
 }
 
-//返回cell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     HistoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HistoryCollectionViewCell" forIndexPath:indexPath];
@@ -179,24 +176,23 @@ static CGFloat kDefaultCellHeight = 24;
 {
     // 创建一个shapeLayer
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
-    CAShapeLayer *backgroundLayer = [[CAShapeLayer alloc] init]; //显示选中
     
     // 创建一个可变的图像Path句柄，该路径用于保存绘图信息
     CGMutablePathRef pathRef = CGPathCreateMutable();
-    // 第一个参数,是整个 cell 的 bounds, 第二个参数是距左右两端的距离,第三个参数是距上下两端的距离
+    // 第一个参数,是整个 view 的 bounds, 第二个参数是距左右两端的距离,第三个参数是距上下两端的距离
     CGRect bounds = CGRectInset(frame, 0, 0);
-    // 初始起点为cell的左下角坐标
-    CGPathMoveToPoint(pathRef, nil, CGRectGetMidX(bounds), CGRectGetMaxY(bounds));
-    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMinX(bounds), CGRectGetMinY(bounds), cornerRadius);
-    // 起始坐标为左下角，设为p，（CGRectGetMinX(bounds), CGRectGetMinY(bounds)）为左上角的点，设为p1(x1,y1)，(CGRectGetMidX(bounds), CGRectGetMinY(bounds))为顶部中点的点，设为p2(x2,y2)。然后连接p1和p2为一条直线l1，连接初始点p到p1成一条直线l，则在两条直线相交处绘制弧度为r的圆角。
-    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius);
-    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
-    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius);
-    // 终点坐标为右下角坐标点，把绘图信息都放到路径中去,根据这些路径就构成了一块区域了
-    //    CGPathAddLineToPoint(pathRef, nil, CGRectGetMidX(bounds), CGRectGetMaxY(bounds));
+    // 先确定初始起点：左上角原点
+    CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds));
+    // 确定两个点（左下角、右下角）+ 前一个点左上角 --- 三个点确定一条弧线为画出左下角的弧线
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), cornerRadius);
+    // 确定两个点（右下角、右上角）+ 前一个点左下角 --- 三个点确定一条弧线为画出右下角的弧线
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMinY(bounds), cornerRadius);
+    // 确定两个点（右上角、左上角）+ 前一个点右下角 --- 三个点确定一条弧线为画出右上角的弧线
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMinX(bounds), CGRectGetMinY(bounds), cornerRadius);
+    // 确定两个点（左上角、左下角）+ 前一个点右上角 --- 三个点确定一条弧线为画出左上角的弧线
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMinX(bounds), CGRectGetMaxY(bounds), cornerRadius);
     // 把已经绘制好的可变图像路径赋值给图层，然后图层根据这图像path进行图像渲染render
     layer.path = pathRef;
-    backgroundLayer.path = pathRef;
     // 注意：但凡通过Quartz2D中带有creat/copy/retain方法创建出来的值都必须要释放
     CFRelease(pathRef);
     // 按照shape layer的path填充颜色，类似于渲染render
@@ -213,19 +209,16 @@ static CGFloat kDefaultCellHeight = 24;
 }
 
 #pragma mark <UICollectionViewDelegate>
-//返回cell的宽和高
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     return [HistoryCollectionViewCell getSizeWithContent:_dataSource[indexPath.row] maxWidth:_tags_CollectionView.frame.size.width customHeight:self.cell_height];
 }
 
-//返回头尾
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     UICollectionReusableView *reusableview = nil;
     
     if (kind == UICollectionElementKindSectionHeader) {
         HistoryHeadCollectionReusableView* view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"HistoryHeadCollectionReusableView" forIndexPath:indexPath];
-//        view.backgroundColor = [UIColor lightGrayColor];
         [view setText:@"搜索历史"];
         [view setImage:@"searchHistory"];
         view.delectDelegate = self;
@@ -234,7 +227,6 @@ static CGFloat kDefaultCellHeight = 24;
     return reusableview;
 }
 
-// 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate tapTagAtIndex:indexPath.row];
